@@ -1,0 +1,16 @@
+*.pyc
+__pycache__
+
+.DS_Store
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+
+robots.txt
+# python
+logs/*
+config/config.ini
