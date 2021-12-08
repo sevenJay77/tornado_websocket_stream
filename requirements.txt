@@ -1,0 +1,5 @@
+opencv_python==4.1.1.26
+tornado==4.5
+psutil==5.7.0
+imutils==0.5.4
+numpy==1.18.1
