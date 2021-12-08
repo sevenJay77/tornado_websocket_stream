@@ -47,18 +47,15 @@ websocket.onmessage = function (event) {
 async function showImage(buffer) {
     console.log(buffer);
     var imageData = await getImageData(buffer);
-    var imageWidget;
+    var camera;
     if (imageData.length > 0) {
         var reader = new FileReader();
         reader.onload = function (event) {
             if (event.target.readyState == FileReader.DONE) {
                 // 属性将包含一个data:URL格式的字符串（base64编码）以表示所读取文件的内容。
                 var url = event.target.result;
-                imageWidget = document.getElementById('cam');
-                imageWidget.src = url;
-                imageWidget.onerror = function () {
-                    requestChannels(requestNum, isSingleChannel);
-                };
+                camera = document.getElementById('cam');
+                camera.src = url;
             }
         };
         // 获取到blob对象
@@ -68,7 +65,6 @@ async function showImage(buffer) {
 
 function getImageData(buffer) {
     return new Promise(function (resolve, reject) {
-        // ... read the data into the buffer ...
         setTimeout(function () {
             // arraybuffer 转为blob
             var imageBlob = new Blob([buffer]);
